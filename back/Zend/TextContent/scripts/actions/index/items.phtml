@@ -1,0 +1,39 @@
+<?php
+/**
+ * @var \Sibirix\TextContent\Model\Actions\ActionEntity $items[]
+ * @var \Sibirix\TextContent\Model\Actions\ActionEntity $item
+ * @var \Sibirix\Main\Model\PageEntity $pageEntity
+ */
+$pageEntity = $this->pageEntity;
+$items = $pageEntity->getItems();
+?>
+<div class="actions-list-grid js-scroll-animation">
+    <div class="grid-row">
+        <? foreach ($items as $item): ?>
+        <div class="col-4 col-sm-6 col-xs-12" id="<?= $this->bitrixButtons($item->getId()) ?>">
+            <a href="<?= $this->url('actions::actions/detail', ['code' => $item->getCode()]) ?>" class="action-card">
+                <div class="picture">
+                    <img src="<?= \Sibirix\Base\Resizer::resizeImage($item->getPreviewPicture(), 'TEXT_CONTENT_ACTIONS_LIST') ?>"
+                         alt="<?= $item->getPreviewPictureAlt() ?>"
+                         title="<?= $item->getPreviewPictureTitle() ?>"
+                    >
+                </div>
+                <div class="text">
+                    <div class="date"><?= $item->getDateStartActionWithoutYear() . ' &mdash; ' . $item->getDateEndActionWithoutYear() ?></div>
+                    <div class="name"><?= $item->getName() ?></div>
+                </div>
+            </a>
+        </div>
+        <? endforeach ?>
+    </div>
+</div>
+
+<?= $this->paginationControl(
+    $pageEntity->getPaginator(),
+    'Sliding',
+    '_partials/pagination.phtml',
+    [
+        'route' => 'actions::actions/index-with-page',
+        'routeParams' => []
+    ]
+) ?>

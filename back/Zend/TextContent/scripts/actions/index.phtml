@@ -1,0 +1,25 @@
+<?
+use \Sibirix\Base\BaseHelper;
+/**
+ * @var \Sibirix\TextContent\Model\Actions\ActionEntity $items[]
+ * @var \Sibirix\TextContent\Model\Actions\ActionEntity $item
+ * @var \Sibirix\Main\Model\PageEntity $pageEntity
+ */
+$text = '<span>Для вас мы постоянно проводим различные акции и будем очень рады, если они вам понравятся</span>';
+$this->bxApp->AddViewContent('additional-header-content', $text, 1);
+
+$items = $this->pageEntity->getItems();
+?>
+<div class="actions-list">
+    <div class="js-actions-list">
+        <?= $this->render('actions/index/items') ?>
+    </div>
+    <div class="page-description">
+        <h3>
+            <? BaseHelper::includeArea('actions/seo-tittle'); ?>
+        </h3>
+        <p>
+            <? BaseHelper::includeArea('actions/seo-text'); ?>
+        </p>
+    </div>
+</div>

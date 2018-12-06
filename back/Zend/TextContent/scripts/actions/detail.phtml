@@ -1,0 +1,76 @@
+<?
+use Sibirix\Base\Settings;
+
+/** @var \Sibirix\TextContent\Model\Actions\ActionEntity $item */
+$item = $this->item;
+$area = new Sibirix\Main\View\Helper\BitrixButtons;
+?>
+
+<div class="actions-detail" id="<?= $this->bitrixButtons($item->getId()) ?>">
+    <div class="actions-detail-main">
+        <h1 class="actions-title hidden-sm"><?= $item->getName() ?></h1>
+        <div class="actions-info text-content">
+            <div>
+                <img src="<?= \Sibirix\Base\Resizer::resizeImage($item->getDetailPicture(), 'TEXT_CONTENT_ACTIONS_DETAIL') ?>"
+                     alt="<?= $item->getDetailPictureAlt() ?>"
+                     title="<?= $item->getDetailPictureTitle() ?>"
+                >
+            </div>
+            <?= $item->getDetailText(); ?>
+        </div>
+    </div>
+
+    <div class="actions-conditions">
+        <h1 class="actions-title visible-sm"><?= $item->getName() ?></h1>
+
+        <div class="actions-conditions-item">
+            <div class="actions-subtitle">Период действия акции</div>
+            <div class="actions-dates"><?= $item->getDateStartAction() ?> - <?= $item->getDateEndAction() ?></div>
+        </div>
+        <div class="actions-conditions-item">
+            <? if ($item->getPropertyInOnlineShop() || $item->getPropertyInShop()): ?>
+                <div class="actions-subtitle">Где действует</div>
+            <? endif; ?>
+            <div class="actions-places">
+                <? if ($item->getPropertyInOnlineShop()): ?>
+                    <div class="actions-places-item online-shops"
+                         id="<?= $this->bitrixButtons(Settings::get("ACTIONS_PLACE_ONLINE_SHOP")->getId()) ?>">
+                        <div class="actions-places-icon">
+                            <img src="<?= Settings::get("ACTIONS_PLACE_ONLINE_SHOP")->getFile()['SRC'] ?>">
+                        </div>
+                        <div class="actions-places-name">
+                            <?= Settings::get("ACTIONS_PLACE_ONLINE_SHOP")->getValue() ?>
+                        </div>
+                    </div>
+                <? endif; ?>
+                <? if ($item->getPropertyInShop()): ?>
+                    <div class="actions-places-item shops"
+                         id="<?= $this->bitrixButtons(Settings::get("ACTIONS_PLACE_SHOP")->getId()) ?>">
+                        <div class="actions-places-icon">
+                            <img src="<?= Settings::get("ACTIONS_PLACE_SHOP")->getFile()['SRC'] ?>">
+                        </div>
+                        <div class="actions-places-name">
+                            <?= Settings::get("ACTIONS_PLACE_SHOP")->getValue() ?>
+                        </div>
+                    </div>
+                <? endif; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<? if ($pageEntity):?>
+<div class="actions-products">
+    <div class="actions-products-header js-scroll-animation">
+            <div class="text-content" id="<?= $this->bitrixButtons(Settings::get("RULES_OF_PARTICIPATION")->getId()) ?>">
+                <?= Settings::get("RULES_OF_PARTICIPATION")->getText(); ?>
+            </div>
+        <h2 class="actions-products-title">Товары-участники акции</h2>
+        <a href="javascript:void(0)" class="actions-products-link" style="display: none">Все товары-участники акции</a>
+    </div>
+
+    <div class="js-product-list">
+        <?= $this->listAction; ?>
+    </div>
+</div>
+<? endif; ?>
