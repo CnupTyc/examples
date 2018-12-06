@@ -1,0 +1,51 @@
+# IDE and repos
+.idea
+.vscode
+.svn
+
+# Archives
+*.7z
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs, backups, and trash
+*.log
+*.bak
+Thumbs.db
+desktop.ini
+.DS_Store
+.DS_Store?
+
+# Video & audio
+*.wmv
+*.mpg
+*.mpeg
+*.mp4
+*.mov
+*.flv
+*.avi
+*.ogv
+*.ogg
+*.webm
+*.wav
+*.mp3
+*.wma
+*.psd
+
+# Project files
+node_modules
+sitemap*.xml
+*cache
+tmp
+html_pages
+www/bitrix
+www/upload
+www/mysql_debug.sql
+www/test.php
+www/restore.php
+www/local/define.const.php
+www/local/logs/*
