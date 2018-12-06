@@ -1,0 +1,94 @@
+@import "../../_var";
+
+.inc-indicators-section {
+    display: block;
+    position: relative;
+    background-image: linear-gradient(302deg, @dirtyWhite, @cWhite);
+
+    .content {
+        height: 100%;
+        min-height: 650px;
+        max-width: 1140px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+
+        h2 {
+            margin: 28px auto 15vh;
+            font: bold 60px @fontBebasNeue;
+            letter-spacing: 2px;
+        }
+    }
+
+    .col {
+        text-align: left;
+        padding-right: 5vw;
+        margin-bottom: 5vh;
+
+        .numeric {
+            font: bold 60px @fontBebasNeue;
+        }
+
+        .text {
+            font: 18px/1.56 @fontPtSansRegular;
+        }
+    }
+
+    .transparent-diamond {
+        .size(332px, 332px);
+
+        position: absolute;
+        left: 24%;
+        transform: translateX(-50%);
+        top: 30vh;
+
+        &:before {
+            .pseudo();
+            .size(332px, 332px);
+
+            background: url('@{picturePath}logo/transparent-diamond-3.png') no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+    }
+
+    .diamond-block {
+        .size(151px, 148px);
+
+        position: absolute;
+        right: -2vw;
+        top: 13vh;
+        transform: translate(-50%, -50%) !important;
+
+        .diamond {
+            .size(inherit, inherit);
+
+            &:before {
+                .pseudo();
+                .size(inherit, inherit);
+
+                background: url('@{picturePath}logo/diamond-3.png') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    @media @media-xs {
+        .transparent-diamond {
+            display: none;
+        }
+    }
+
+    @media @media-md {
+        .diamond-block {
+            display: none;
+        }
+    }
+
+    @media @media-grid-xs-sm {
+        .transparent-diamond,
+        .diamond-block {
+            display: none;
+        }
+    }
+}

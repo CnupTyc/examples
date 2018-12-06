@@ -1,0 +1,281 @@
+@import "../../_var";
+
+.tasks-section {
+    display: block;
+    background-color: @dirtyWhiteTwo;
+    background-size: cover;
+
+    .content {
+        width: 1140px;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        top: 100px;
+        padding-top: 1px;
+
+        .fp-slidesContainer {
+            transform: none !important;
+        }
+
+        h2 {
+            margin: 0 auto;
+            color: @dirtyBlue;
+            font: bold 60px @fontBebasNeue;
+            letter-spacing: 2px;
+            text-align: center;
+
+            @media @media-md {
+                margin-bottom: 70px;
+            }
+
+            @media @media-sm {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+        .task-one, .task-two, .task-three, .task-four, .task-five, .task-six {
+            height: 350px;
+            padding-top: 23px;
+            border: 1px solid @dirtyWhite;
+
+            .task-icons {
+                width: 100%;
+                position: absolute;
+                top: 200px;
+
+                .prev-task, .next-task {
+                    position: absolute;
+                    top: 25px;
+
+                    &:before {
+                        .pseudoRelative();
+                        .size(90px, 90px);
+                        .icon(@arrows);
+                    }
+                }
+
+                .prev-task {
+                    left: 100px;
+
+                    &:before {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                .next-task {
+                    right: 100px;
+                }
+
+                .icon {
+                    display: inline-block;
+                    position: relative;
+                    margin: 0 auto;
+
+                    &:before{
+                        .size(130px, 130px);
+                        .pseudoRelative();
+                    }
+                }
+            }
+
+            .text {
+                font: 18px/1.56 @fontPtSansRegular;
+                text-align: center;
+                color: @dirtyBlue;
+            }
+
+            @media @media-more-md {
+                width: 945px !important;
+            }
+
+            @media @media-grid-sm-md {
+                width: 600px !important;
+
+                &:before {
+                    left: 255px;
+                }
+
+                height: 260px;
+
+                .task-icons {
+                    top: 130px;
+                }
+            }
+
+            @media @media-grid-md-lg {
+                height: 200px;
+
+                .task-icons {
+                    top: 90px;
+                }
+            }
+        }
+
+        .task-one {
+            position: relative;
+            background-color: @cWhite;
+            text-align: center;
+
+            .icon:before {
+                background: url('@{picturePath}tasks/gift.svg') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .task-two {
+            margin: 70px 0 0 20px;
+            position: relative;
+            background-color: @cWhite;
+            text-align: center;
+
+            .icon:before {
+                background: url('@{picturePath}tasks/diamond.svg') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .task-three {
+            margin: 140px 0 0 40px;
+            position: relative;
+            background-color: @cWhite;
+            text-align: center;
+
+            .icon:before {
+                background: url('@{picturePath}tasks/lens.svg') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .task-four {
+            margin: 210px 0 0 60px;
+            position: relative;
+            background-color: @cWhite;
+            text-align: center;
+
+            .icon:before {
+                background: url('@{picturePath}tasks/earrings.svg') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .task-five {
+            margin: 280px 0 0 80px;
+            position: relative;
+            background-color: @cWhite;
+            text-align: center;
+
+            .icon:before {
+                background: url('@{picturePath}tasks/diamond2.svg') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        .task-six {
+            margin: 350px 0 0 100px;
+            position: relative;
+            background-color: @cWhite;
+            text-align: center;
+
+            .icon:before {
+                background: url('@{picturePath}tasks/car.svg') no-repeat center;
+                background-size: contain;
+            }
+        }
+
+        @media @media-more-sm {
+            .slide {
+                position: absolute !important;
+
+                &.active + .slide {
+                    position: absolute;
+                }
+
+                &.active {
+                    position: relative;
+                    opacity: 1;
+                    transition-property: opacity, transform;
+                    transition-duration: 0.5s, 0.5s;
+
+                    ~ .slide {
+                        position: relative;
+                        opacity: 0;
+                        transform: translateY(500px);
+                        transition-property: opacity, transform;
+                        transition-duration: 0.5s;
+
+                    }
+                }
+
+            }
+        }
+
+        @media @media-grid-md-lg {
+            width: auto;
+            top: 10px;
+        }
+
+        @media @media-md {
+            padding-left: 31px;
+            width: auto;
+        }
+
+        @media @media-sm {
+            padding: 0 20px;
+            width: auto;
+        }
+
+        @media @media-sm {
+            top: 0;
+
+            .task-one, .task-two, .task-three, .task-four, .task-five, .task-six {
+                height: auto;
+                min-height: 50px;
+                display: block;
+                position: relative;
+                margin: 0 0 20px;
+                background-color: @cWhite;
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                border: 1px solid @dirtyWhite;
+
+                .task-icons {
+                    position: absolute;
+                    display: block;
+                    top: 10px;
+                    left: 10px;
+
+                    .fp-controlArrow {
+                        display: none;
+                    }
+
+                    .icon {
+                        display: block;
+                        margin: 0;
+
+                        &:before {
+                            .size(60px, 64px);
+                        }
+                    }
+                }
+
+                .text {
+                    width: ~'calc(100% - 100px)' !important;
+                    display: block;
+                    position: relative;
+                    text-align: left;
+                    left: 63px;
+                    margin-left: 20px;
+                    color: @dirtyBlue;
+                    font: 14px/1.56 @fontPtSansRegular;
+
+                    @media @media-more-xs and @media-sm {
+                        width: 425px;
+                        min-height: 50px;
+                    }
+                }
+            }
+        }
+    }
+}

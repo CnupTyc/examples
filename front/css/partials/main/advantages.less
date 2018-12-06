@@ -1,0 +1,133 @@
+@import "../../_var";
+
+.advantages-section {
+    display: block;
+    background: center/cover url('@{picturePath}/advantages/background-advantages.png') no-repeat;
+
+    @media @media-grid-xs-sm {
+        height: 820px;
+    }
+
+    @media @media-sm {
+        height: 1080px;
+    }
+
+    .content {
+        .size(1140px, 663px);
+
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        position: relative;
+        top: 126px;
+        padding-top: 1px;
+        border: 1px solid @dirtyWhite;
+        border-top: 0;
+
+        .line-left, .line-right {
+            height: 1px;
+            display: block;
+            background-color: @dirtyWhite;
+            border: none;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+
+        .line-title {
+            display: flex;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            transform: translateY(-50%);
+            align-items: center;
+        }
+
+        h2 {
+            padding: 0 20px;
+            font: bold 60px @fontBebasNeue;
+            letter-spacing: 2px;
+            text-align: center;
+            color: @cWhite;
+
+            @media @media-xs {
+                font-size: 50px;
+            }
+        }
+
+        .grid-row {
+            .col {
+                .advantages-box {
+                    padding-top: 4px;
+
+                    .bold-text {
+                        margin-bottom: 12px;
+                        font: bold 60px @fontBebasNeue;
+                        letter-spacing: 2px;
+                        color: @cWhite;
+                    }
+
+                    .text {
+                        color: @cWhite;
+                        font: 18px/1.33 @fontPtSansRegular;
+
+                        ul {
+                            padding-left: 35px;
+
+                            li {
+                                list-style-type: none;
+                                position: relative;
+
+                                &+li {
+                                    margin-top: 25px;
+                                }
+
+                                &:before {
+                                    .pseudo();
+                                    .size(14px, 14px);
+
+                                    background-color: @cWhite;
+                                    transform: rotate(45deg);
+
+
+                                    left: -35px;
+                                    top: 4px;
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+                @media @media-more-md {
+                    margin-top: 115px;
+                }
+
+                @media @media-md {
+                    margin-top: 50px;
+                }
+
+                @media @media-xs {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        @media @media-sm {
+            height: auto;
+            padding: 30px 0 15px;
+        }
+
+        @media @media-md {
+            width: auto;
+            margin: 0 20px;
+        }
+
+        @media @media-grid-md-lg {
+            width: auto;
+            max-height: 600px;
+            margin: 0 20px;
+            top: 50px;
+        }
+    }
+}

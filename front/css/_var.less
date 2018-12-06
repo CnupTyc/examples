@@ -1,0 +1,106 @@
+@import "icons";
+
+/**
+ * Переменные
+ **/
+@fontBebasNeue: BebasNeue;
+@fontPtSansRegular: PtSansRegular;
+@fontPtSansBold: PtSansBold;
+
+
+@imagePath: '../images/';
+@picturePath: '../pictures/';
+
+
+@transitTime: 0.3s;
+
+/**
+ * Сетка
+ **/
+
+@gridGutterWidth: 30px;
+@gridColumnsCount: 12;
+
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md-sm: 870px;
+@screen-md: 1024px;
+@screen-lg: 1200px;
+@screen-xlg: 1300px;
+
+@screen-xs-max: (@screen-xs - 1);
+@screen-sm-max: (@screen-sm - 1);
+@screen-md-sm-max: (@screen-md-sm - 1);
+@screen-md-max: (@screen-md - 1);
+@screen-lg-max: (@screen-lg - 1);
+@screen-xlg-max: (@screen-xlg - 1);
+
+@media-xs: ~'(max-width: @{screen-xs-max})';
+@media-sm: ~'(max-width: @{screen-sm-max})';
+@media-md-sm-max: ~'(max-width: @{screen-md-sm-max})';
+@media-md: ~'(max-width: @{screen-md-max})';
+@media-lg: ~'(max-width: @{screen-lg-max})';
+@media-xlg: ~'(max-width: @{screen-xlg-max})';
+
+@media-more-xs: ~'(min-width: @{screen-xs})';
+@media-more-sm: ~'(min-width: @{screen-sm})';
+@media-more-md: ~'(min-width: @{screen-md-max})';
+@media-more-lg: ~'(min-width: @{screen-lg})';
+@media-more-xlg: ~'(min-width: @{screen-xlg})';
+
+@media-grid-xs: ~'(max-width: @{screen-xs-max})';
+@media-grid-sm: ~'(min-width: @{screen-xs}) and (max-width: @{screen-md-sm-max})';
+@media-grid-md: ~'(min-width: @{screen-md-sm}) and (max-width: @{screen-md-max})';
+@media-grid-lg: ~'(min-width: @{screen-md})';
+
+@media-grid-xs-sm: ~'@{media-more-xs} and @{media-sm}';
+@media-grid-sm-md: ~'@{media-more-sm} and @{media-md}';
+@media-grid-md-lg: ~'@{media-more-md} and @{media-lg}';
+
+
+/****
+ * Миксины, разное
+ ****/
+
+.size(@width, @height: @width) {
+    width:  @width;
+    height: @height;
+}
+
+.pseudo(@content: '') {
+    content: @content;
+    display: block;
+    position: absolute;
+}
+
+.pseudoRelative (@content: '') {
+    content: @content;
+    display: block;
+    position: relative;
+}
+
+.transit(@prop: all, @time: @transitTime, @ease: ease) {
+    transition: @prop @time @ease;
+}
+
+
+/***
+*Отступы логотипа
+***/
+@logoPaddingTop: 205px;
+
+/***
+*Внутренний отзыв для списка
+***/
+@leftPaddingLi: 30px;
+
+/***
+* Палитра цветов
+***/
+@cWhite          : #fff;
+@dirtyWhite      : #eaeaea;
+@dirtyWhiteTwo   : #eef2f5;
+@dirtyBlue       : #243746;
+@cGray           : #888888;
+@cBorder         : #c8c8c8;
+@dirtyWhiteThree : #fcfcfc;

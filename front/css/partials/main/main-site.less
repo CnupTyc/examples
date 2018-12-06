@@ -1,0 +1,156 @@
+@import "../../_var";
+
+.main-site-section {
+    display: block;
+    position: relative;
+    background-image: linear-gradient(302deg, @dirtyWhite, @cWhite);
+
+    .content {
+        max-width: 1140px;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .icon {
+        .size(64px);
+        position: relative;
+        margin: 45vh auto 0;
+        border-radius: 50%;
+        border: 1px solid @dirtyBlue;
+
+        &:before {
+            .pseudo();
+            .size(17px);
+            .icon(@link);
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        @media @media-sm{
+            margin-top: 13vh;
+        }
+    }
+
+    .link {
+        margin-top: 5vh;
+        transform: translateY(-50%);
+
+        a {
+            text-decoration: underline;
+            font: 36px/0.78 @fontPtSansRegular;
+
+            @media @media-xs {
+                font-size: 30px;
+            }
+        }
+
+        @media @media-sm {
+            margin-bottom: 5vh;
+        }
+    }
+
+    .transparent-diamond-1,
+    .transparent-diamond-2,
+    .transparent-diamond-3 {
+        position: absolute;
+        &:before {
+            .pseudoRelative();
+        }
+    }
+
+    .transparent-diamond-1 {
+        top: 88%;
+        transform: translateY(-50%);
+
+        &:before {
+            .size(410px, 279px);
+
+            background: url('@{picturePath}/logo/transparent-diamond-2.png') no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .transparent-diamond-2 {
+        right: 0;
+        top: 64%;
+        transform: translateY(-50%);
+
+        &:before {
+            .size(232px, 283px);
+
+            background: url('@{picturePath}logo/transparent-diamond-1.png') no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .transparent-diamond-3 {
+        left: 24%;
+        transform: translateX(-50%);
+        top: 0;
+
+        &:before {
+            .size(332px, 171px);
+
+            background: url('@{picturePath}logo/transparent-diamond-3.png') no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+    }
+
+    .diamond-block-2,
+    .diamond-block-3 {
+        position: absolute;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .diamond-block-2 {
+        left: 28%;
+        top: 30%;
+
+        .diamond-2 {
+            &:before {
+                .pseudoRelative();
+                .size(122px, 120px);
+
+                background: url('@{picturePath}logo/diamond-2.png') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    .diamond-block-3 {
+        right: 10%;
+        top: -80%;
+
+        .diamond-3 {
+            &:before {
+                .pseudoRelative();
+                .size(151px, 148px);
+
+                background: url('@{picturePath}logo/diamond-3.png') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    @media @media-xs {
+        .transparent-diamond-1,
+        .transparent-diamond-3 {
+            display: none;
+        }
+    }
+
+    @media @media-md {
+        .diamond-block-2,
+        .diamond-block-3 {
+            display: none;
+        }
+    }
+
+
+}

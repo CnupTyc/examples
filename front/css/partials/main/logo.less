@@ -1,0 +1,217 @@
+@import "../../_var";
+
+.logo-section {
+    display: block;
+    background-image: linear-gradient(302deg, @dirtyWhite, @cWhite);
+
+    @media @media-grid-xs-sm {
+        height: 400px;
+    }
+
+    @media @media-xs {
+        height: 550px;
+    }
+
+    .logotype {
+        &:before {
+            .size(245px, 83px);
+            .icon(@logo);
+            .pseudoRelative();
+
+            margin: 0 auto;
+        }
+    }
+
+    .content {
+        width: 1140px;
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding-top: @logoPaddingTop;
+        text-align: center;
+
+        h1 {
+            margin-top: 55px;
+            color: @dirtyBlue;
+            font: bold 60px @fontBebasNeue;
+            letter-spacing: 2px;
+            margin-bottom: 22px;
+
+            @media @media-xs {
+                font-size: 35px;
+                margin-top: 30px;
+            }
+        }
+
+        @media @media-md {
+            width: auto;
+        }
+
+        @media @media-xs {
+            padding-top: 20px;
+        }
+
+        @media @media-grid-xs-sm {
+            padding-top: 20px;
+            width: auto;
+        }
+
+        @media @media-grid-md-lg {
+            width: auto;
+            padding-top: 50px;
+        }
+    }
+
+    .logo-text-little {
+        margin: 0 auto;
+        width: 428px;
+        color: @dirtyBlue;
+        font: 18px/1.56 @fontPtSansRegular;
+
+        @media @media-xs {
+            width: auto;
+            margin: 10px;
+        }
+    }
+
+    .transparent-diamond-1,
+    .transparent-diamond-2,
+    .transparent-diamond-3 {
+        position: absolute;
+        &:before {
+            .pseudoRelative();
+        }
+    }
+
+    .transparent-diamond-1 {
+        top: 50%;
+        transform: translateY(-50%);
+
+        &:before {
+            .size(158px, 283px);
+
+            background: url('@{picturePath}/logo/transparent-diamond-1.png') no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+    }
+
+    .transparent-diamond-2 {
+        right: 0;
+        top: 42%;
+        transform: translateY(-50%);
+
+        &:before {
+            .size(149px, 292px);
+
+            background: url('@{picturePath}logo/transparent-diamond-2.png') no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .transparent-diamond-3 {
+        left: 24%;
+        transform: translateX(-50%);
+        top: 0;
+
+        &:before {
+            .size(332px, 175px);
+
+            background: url('@{picturePath}logo/transparent-diamond-3.png') no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+    }
+
+    .diamond-block-1,
+    .diamond-block-2,
+    .diamond-block-3 {
+        position: absolute;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .diamond-1,
+    .diamond-2,
+    .diamond-3 {
+        .size(inherit, inherit);
+    }
+
+    .diamond-block-1 {
+        left: 78%;
+        top: 147%;
+
+        .diamond-1 {
+            &:before {
+                .pseudoRelative();
+                .size(457px, 286px);
+
+                background: url('@{picturePath}logo/diamond-1.png') no-repeat;
+                background-size: cover;
+
+                @media @media-sm {
+                    .size(200px, 125px);
+                }
+            }
+        }
+
+        @media @media-sm {
+            left: 50%;
+            top: 125%
+        }
+    }
+
+    .diamond-block-2 {
+        left: 28%;
+        top: 138%;
+
+        .diamond-2 {
+            &:before {
+                .pseudoRelative();
+                .size(122px, 120px);
+
+                background: url('@{picturePath}logo/diamond-2.png') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    .diamond-block-3 {
+        right: 0;
+        top: 28%;
+
+        .diamond-3 {
+            &:before {
+                .pseudoRelative();
+                .size(151px, 148px);
+
+                background: url('@{picturePath}logo/diamond-3.png') no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+
+    @media @media-xs {
+        .transparent-diamond-1,
+        .transparent-diamond-3 {
+            display: none;
+        }
+    }
+
+    @media @media-md {
+        .transparent-diamond-2,
+        .diamond-block-2,
+        .diamond-block-3 {
+            display: none;
+        }
+
+        .transparent-diamond-1 {
+            top: 645px;
+        }
+    }
+
+    @media @media-grid-xs-sm {
+        .all-diamonds {
+            display: none;
+        }
+    }
+}

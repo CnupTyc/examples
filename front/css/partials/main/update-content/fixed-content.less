@@ -1,0 +1,50 @@
+@import "../../../_var";
+
+.update-fixed-content {
+    width: 100%;
+    max-width: 1275px;
+    display: block;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    transition-duration: 0.5s;
+    pointer-events: none;
+
+    h2 {
+        margin-bottom: 21px;
+        font: bold 60px @fontBebasNeue;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    .text {
+        max-width: 715px;
+        min-height: 56px;
+        padding: 0 20px;
+        margin: 0 auto 155px;
+        font: 18px/1.56 @fontPtSansRegular;
+        text-align: center;
+    }
+
+    .no-show {
+        display: none;
+    }
+
+    .pictures {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .image {
+            flex: 1 1 auto;
+            display: block;
+            padding: 0 5%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+}

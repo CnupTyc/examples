@@ -1,0 +1,170 @@
+@import "../../_var";
+
+.clients-threads-section {
+    display: block;
+    background: @cWhite linear-gradient(transparent 65%, @dirtyBlue 50%);
+
+    .content {
+        display: block;
+        margin: 0 auto;
+        max-width: 1140px;
+
+        h2 {
+            width: fit-content;
+            margin: 16px auto 22px;
+            font: bold 60px @fontBebasNeue;
+            letter-spacing: 2px;
+            text-align: center;
+            color: @dirtyBlue;
+        }
+
+        .text {
+            max-width: 670px;
+            margin: 0 auto 43px;
+            text-align: center;
+            font: 18px/1.56 @fontPtSansRegular;
+            color: @dirtyBlue;
+        }
+
+        .labels {
+            max-width: 100%;
+            display: flex;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .left, .right {
+                max-width: 260px;
+                position: relative;
+                text-align: left;
+                font: 14px/1.43 @fontPtSansRegular;
+                color: @dirtyBlue;
+            }
+
+            .left {
+                left: 0;
+                text-align: left;
+            }
+
+            .right {
+                right: 0;
+                text-align: right;
+            }
+
+            @media @media-lg {
+                margin: 0 20px 30px 20px;
+            }
+        }
+
+        .notebook-block {
+            text-align: center;
+            position: relative;
+
+            .notebook {
+                width: 60vw;
+                max-width: 1140px;
+
+                @media @media-grid-md-lg {
+                    width: 65vw;
+                }
+
+                @media @media-md {
+                    width: 85vw;
+                    margin-top: 125px;
+                }
+            }
+
+            .left-arrow {
+                position: absolute;
+                left: 20px;
+
+                &:before {
+                    .size(51px,161px);
+                    .icon(@arrow);
+                    .pseudoRelative();
+                }
+
+                @media @media-grid-md-lg {
+                    left: 150px;
+                }
+
+                @media @media-md {
+                    left: 40px;
+                }
+            }
+
+            .right-arrow {
+                position: absolute;
+                right: 20px;
+
+                &:before {
+                    .size(51px,161px);
+                    .icon(@arrow);
+                    .pseudoRelative();
+
+                    transform: scale(-1, 1);
+                }
+
+                @media @media-grid-md-lg {
+                    right: 150px;
+                }
+
+                @media @media-md {
+                    right: 40px;
+                }
+            }
+        }
+
+        @media @media-sm {
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 1px;
+            text-align: center;
+
+            .text {
+                margin: 0 auto 20px;
+                max-width: 670px;
+                text-align: center;
+                font: 14px/1.56 @fontPtSansRegular;
+                color: @dirtyBlue;
+            }
+
+            .labels {
+                max-width: 100%;
+                margin-bottom: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .left, .right {
+                    position: relative;
+                    max-width: 50%;
+                }
+            }
+
+            .notebook {
+                margin: 0 auto;
+                width: 90vw;
+            }
+
+            .notebook-block {
+                .notebook {
+                    margin: 0 auto;
+                    width: 90vw;
+
+                    @media @media-grid-xs-sm {
+                        width: 39vw;
+                    }
+                }
+
+                .left-arrow, .right-arrow {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media @media-sm {
+        background: @cWhite linear-gradient(transparent 75%, @dirtyBlue 50%);
+    }
+}

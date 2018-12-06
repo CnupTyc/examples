@@ -1,0 +1,27 @@
+@import "_var";
+
+/****
+ * Подключение шрифтов
+ ****/
+
+@fontPath: 'fonts/';
+.font(@fontName, @fontFileName, @weight: normal, @style: normal) {
+    @font-face {
+        font-family: @fontName;
+        src: url('@{fontPath}@{fontFileName}.woff2') format('woff2'),
+             url('@{fontPath}@{fontFileName}.woff') format('woff');
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+// Пример указания шрифта
+// .font(@fontName, @fontFileName, 400);
+// fontName - название шрифта, как к нему будем обращаться в коде. Например - 'Open Sans'.
+// fontFileName - имя файла шрифта в папке fonts, к нему будет дописываться расширение
+// Рекомендуется использовать названия шрифтов из переменных из _var.less
+
+.font(@fontBebasNeue, 'bebasneue_bold', 600);
+.font(@fontPtSansRegular, 'ptsans_regular', 400);
+.font(@fontPtSansBold, 'ptsans_bold', 600);
+

@@ -1,0 +1,1 @@
+<div class="picture-section section" data-anchor="picture"></div>

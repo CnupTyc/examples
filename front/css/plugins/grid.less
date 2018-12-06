@@ -1,0 +1,211 @@
+@import "../_var";
+
+/****
+ * Сетка (bootstrap сетка)
+ ****/
+
+.make-grid-row() {
+    .grid-row {
+        .grid-row();
+
+        .make-gridColumnsCount();
+
+        /**
+         * Телефон
+        **/
+        .make-grid(xs);
+
+        /**
+         * Планшет
+        **/
+        @media @media-grid-sm {
+            .make-grid(sm);
+        }
+
+        /**
+         * Маленький десктоп
+        **/
+        @media @media-grid-md {
+            .make-grid(md);
+        }
+
+        /**
+         * Десктоп
+        **/
+        @media @media-grid-lg {
+            .make-grid(lg);
+        }
+    }
+
+}
+
+.grid-row(@gutter: @gridGutterWidth) {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-left: ceil((@gutter / -2));
+    margin-right: floor((@gutter / -2));
+
+    // Горизонтальное выравнивание
+    &.ha-between {
+        justify-content: space-between;
+    }
+
+    &.ha-end {
+        justify-content: flex-end;
+    }
+
+    // Вертикальное выравнивание
+    &.va-center {
+        align-content: center;
+        align-items: center;
+    }
+
+    &.va-start {
+        align-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &.va-stretch {
+        align-items: stretch;
+    }
+
+    &.va-end {
+        align-items: flex-end;
+    }
+
+    // Расстояние между колонками
+    &.gutter-0 {
+        margin-left: 0;
+        margin-right: 0;
+
+        > [class*="col-"],
+        > div {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &.gutter-10 {
+        margin-left: -5px;
+        margin-right: -5px;
+
+        > div {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+
+    &.gutter-16 {
+        margin-left: -8px;
+        margin-right: -8px;
+
+        > div {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+
+    &.gutter-20 {
+        margin-left: -10px;
+        margin-right: -10px;
+
+        > div {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+}
+
+.make-gridColumnsCount() {
+    .col(@index) {
+        @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+        .col((@index + 1), @item);
+    }
+    .col(@index, @list) when (@index =< @gridColumnsCount) {
+        @item: ~".col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+        .col((@index + 1), ~"@{list}, @{item}");
+    }
+    .col(@index, @list) when (@index > @gridColumnsCount) {
+        @{list} {
+            box-sizing: border-box;
+            position: relative;
+            min-height: 1px;
+            padding-left: ceil((@gridGutterWidth / 2));
+            padding-right: floor((@gridGutterWidth / 2));
+            flex-shrink: 0;
+            flex-grow: 0;
+            max-width: 100%;
+        }
+    }
+    .col(1);
+
+    > .col {
+        box-sizing: border-box;
+        position: relative;
+        min-height: 1px;
+        padding-left: ceil((@gridGutterWidth / 2));
+        padding-right: floor((@gridGutterWidth / 2));
+        flex-shrink: 0;
+        flex-grow: 0;
+        max-width: 100%;
+    }
+}
+
+// Разные типы колонок
+.calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+    .col-@{class}-@{index} {
+        width: percentage((@index / @gridColumnsCount));
+    }
+}
+
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
+    .col-@{class}-push-@{index} {
+        left: percentage((@index / @gridColumnsCount));
+    }
+}
+
+.calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
+    .col-@{class}-push-0 {
+        left: auto;
+    }
+}
+
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
+    .col-@{class}-pull-@{index} {
+        right: percentage((@index / @gridColumnsCount));
+    }
+}
+
+.calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
+    .col-@{class}-pull-0 {
+        right: auto;
+    }
+}
+
+.calc-grid-column(@index, @class, @type) when (@type = offset) {
+    .col-@{class}-offset-@{index} {
+        margin-left: percentage((@index / @gridColumnsCount));
+    }
+}
+
+.loop-gridColumnsCount(@index, @class, @type) when (@index >= 0) {
+    .calc-grid-column(@index, @class, @type);
+    .loop-gridColumnsCount((@index - 1), @class, @type);
+}
+
+// Создаём специальные стили для каждого типа колонок
+.make-grid(@class) {
+    .loop-gridColumnsCount(@gridColumnsCount, @class, width);
+    .loop-gridColumnsCount(@gridColumnsCount, @class, pull);
+    .loop-gridColumnsCount(@gridColumnsCount, @class, push);
+    .loop-gridColumnsCount(@gridColumnsCount, @class, offset);
+}
+
+.loop-gridColumnsCount-clear(@index, @class) when (@index > 0) {
+    .loop-gridColumnsCount-clear((@index - 1), @class);
+}
+
+.make-grid-clear(@class) {
+    .loop-gridColumnsCount-clear(@gridColumnsCount, @class);
+}

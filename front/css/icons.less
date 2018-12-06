@@ -1,0 +1,20 @@
+
+@arrow: 'arrow' '../images/sprite.svg?8e45a813' -2px -89px 53px 162px;
+@arrows: 'arrows' '../images/sprite.svg?8e45a813' -59px -89px 90px 90px;
+@check: 'check' '../images/sprite.svg?8e45a813' -239px -89px 8px 7px;
+@fast-order: 'fast-order' '../images/sprite.svg?8e45a813' -189px -118px 11px 16px;
+@fast-order-white: 'fast-order-white' '../images/sprite.svg?8e45a813' -174px -118px 11px 16px;
+@fav: 'fav' '../images/sprite.svg?8e45a813' -211px -89px 24px 20px;
+@fav-active: 'fav-active' '../images/sprite.svg?8e45a813' -183px -89px 24px 20px;
+@link: 'link' '../images/sprite.svg?8e45a813' -153px -118px 17px 17px;
+@loader: 'loader' '../images/sprite.svg?8e45a813' -153px -89px 26px 25px;
+@logo: 'logo' '../images/sprite.svg?8e45a813' -2px -2px 245px 83px;
+@marker: 'marker' '../images/sprite.svg?8e45a813' -204px -118px 16px 16px;
+
+.icon(@icon) {
+    width: extract(@icon, 5);
+    height: extract(@icon, 6);
+    @sprite-image: extract(@icon, 2);
+    @sprite-image-bare: ~`"@{sprite-image}".slice(1, -1)`;
+    background: url(@sprite-image-bare) extract(@icon, 3) extract(@icon, 4) no-repeat;
+}
